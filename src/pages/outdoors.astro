@@ -3,33 +3,84 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Outdoors | Teddy Travels">
-  <h1>Outdoors</h1>
-  <p>
-    Shorter outdoor reports: hikes, backpacking trips, scrambles, peaks, snow climbs,
-    trail runs, and weekend missions.
-  </p>
+  <section class="page-header">
+    <p class="eyebrow">Routes, peaks, trails</p>
+    <h1>Outdoors</h1>
+    <p>
+      Climbing, hiking, backpacking, scrambling, and short expedition reports, organized by region and country.
+    </p>
+  </section>
 
-  <h2>United States</h2>
-
-  <div class="card-grid">
-    <article class="card">
-      <h2>Idaho</h2>
-      <p>White Clouds, Sawtooths, Boise National Forest, Bear River Range, and more.</p>
+  <section class="archive-grid">
+    <article class="region-card">
+      <p class="eyebrow">United States</p>
+      <h2>Mountain West</h2>
+      <p>
+        Idaho, Utah, Wyoming, Montana, Colorado, Nevada, and the high desert /
+        alpine places in between.
+      </p>
+      <ul class="report-list">
+        <li><span>Coming soon</span> Naomi Peak</li>
+        <li><span>Coming soon</span> Castle Peak</li>
+        <li><span>Coming soon</span> Grand Sawtooth Loop</li>
+      </ul>
     </article>
 
-    <article class="card">
-      <h2>Utah</h2>
-      <p>Wasatch, Bear Lake area, desert trips, and mountain weekends.</p>
+    <article class="region-card">
+      <p class="eyebrow">United States</p>
+      <h2>Pacific Northwest</h2>
+      <p>
+        Washington, Oregon, Cascades objectives, fire lookouts, alpine lakes,
+        rain, snow, and long drives.
+      </p>
+      <ul class="report-list">
+        <li><span>Coming soon</span> Three Fingers Lookout</li>
+        <li><span>Coming soon</span> Vesper Peak</li>
+        <li><span>Coming soon</span> Gobbler’s Knob</li>
+      </ul>
     </article>
 
-    <article class="card">
-      <h2>Washington</h2>
-      <p>Fire lookouts, scrambles, alpine lakes, and Cascades objectives.</p>
+    <article class="region-card">
+      <p class="eyebrow">United States</p>
+      <h2>Appalachia</h2>
+      <p>
+        Tennessee, North Carolina, Georgia, Virginia, the Smokies, the Blue Ridge,
+        and the mountains closer to home.
+      </p>
+      <ul class="report-list">
+        <li><span>Coming soon</span> Max Patch</li>
+        <li><span>Coming soon</span> Mt. Mitchell</li>
+        <li><span>Coming soon</span> Mt. Cammerer</li>
+      </ul>
     </article>
 
-    <article class="card">
-      <h2>Southeast</h2>
-      <p>Tennessee, North Carolina, Georgia, and home-region trips.</p>
+    <article class="region-card">
+      <p class="eyebrow">International</p>
+      <h2>Switzerland</h2>
+      <p>
+        Alps, villages, trains, ridgelines, mountain huts, and whatever future
+        European alpine missions make it onto the list.
+      </p>
+      <ul class="report-list">
+        <li><span>Future</span> Saas Fee</li>
+        <li><span>Future</span> Finsteraarhorn</li>
+        <li><span>Future</span> Cosmiques Hut</li>
+      </ul>
     </article>
-  </div>
+
+    <article class="region-card">
+      <p class="eyebrow">International</p>
+      <h2>New Zealand</h2>
+      <p>
+        Tramps, peaks, huts, coastal tracks, alpine passes, and stories from
+        study abroad.
+        <br>
+      </p>
+      <ul class="report-list">
+        <li><span>Future</span> Mt. Cook</li>
+        <li><span>Future</span> Routeburn Track</li>
+        <li><span>Future</span> Milford Track</li>
+      </ul>
+    </article>
+  </section>
 </BaseLayout>

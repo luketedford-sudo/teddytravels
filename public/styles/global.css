@@ -241,3 +241,63 @@
     line-height: 1.25;
     color: var(--paper);
   }
+
+  .page-header {
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .page-header p {
+    font-size: 1.15rem;
+    color: var(--muted);
+  }
+  
+  .archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+    margin-top: 40px;
+  }
+  
+  .region-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+  }
+  
+  .region-card h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+  
+  .region-card p {
+    color: var(--muted);
+  }
+  
+  .report-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+    border-top: 1px solid var(--border);
+  }
+  
+  .report-list li {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .report-list span {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  
