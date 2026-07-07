@@ -1,46 +1,47 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Teddy Travels</title>
-  </head>
-  <body>
-    <header>
-      <h1>Teddy Travels</h1>
-      <p>A personal archive of mountains, road trips, surf, work seasons, study abroad, and whatever else happens outside.</p>
+<BaseLayout title="Teddy Travels">
+  <section class="hero">
+    <h1>Teddy Travels</h1>
+    <p>
+      A personal archive of mountains, road trips, surf, work seasons, study abroad,
+      and whatever else happens outside.
+    </p>
+  </section>
 
-      <nav>
-        <a href="/outdoors">Outdoors</a>
-        <a href="/trips">Trips</a>
-        <a href="/photos">Photos</a>
-        <a href="/gear">Gear</a>
-        <a href="/objectives">Objectives</a>
-        <a href="/about">About</a>
-      </nav>
-    </header>
+  <section>
+    <h2>Welcome</h2>
+    <p>
+      I’m Luke Tedford. This site is my digital scrapbook for trip reports,
+      photos, gear notes, objectives, and stories from the road.
+    </p>
+  </section>
 
-    <main>
-      <section>
-        <h2>Welcome</h2>
-        <p>
-          I’m Luke Tedford. This site is my digital scrapbook for trip reports,
-          photos, gear notes, objectives, and stories from the road.
-        </p>
-      </section>
+  <section class="card-grid">
+    <article class="card">
+      <h2>Outdoors</h2>
+      <p>Climbing, hiking, backpacking, scrambling, and expedition reports.</p>
+      <a href="/outdoors">Explore outdoor reports →</a>
+    </article>
 
-      <section>
-        <h2>Start here</h2>
-        <ul>
-          <li><a href="/outdoors">Climbing, hiking, and expeditions</a></li>
-          <li><a href="/trips">Longer trips and travel stories</a></li>
-          <li><a href="/photos">Photo gallery</a></li>
-          <li><a href="/gear">Gear list</a></li>
-          <li><a href="/objectives">Objectives</a></li>
-        </ul>
-      </section>
-    </main>
-  </body>
-</html>
+    <article class="card">
+      <h2>Trips</h2>
+      <p>Longer travel stories: road trips, surf trips, work seasons, and international wandering.</p>
+      <a href="/trips">Read travel stories →</a>
+    </article>
+
+    <article class="card">
+      <h2>Photos</h2>
+      <p>Favorite shots from trails, peaks, campsites, coastlines, and strange roads.</p>
+      <a href="/photos">View gallery →</a>
+    </article>
+
+    <article class="card">
+      <h2>Objectives</h2>
+      <p>Peaks, routes, countries, trails, and ideas I’m chasing.</p>
+      <a href="/objectives">See objectives →</a>
+    </article>
+  </section>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+const { title = "Teddy Travels" } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="site-title" href="/">Teddy Travels</a>
+
+      <nav>
+        <a href="/outdoors">Outdoors</a>
+        <a href="/trips">Trips</a>
+        <a href="/photos">Photos</a>
+        <a href="/gear">Gear</a>
+        <a href="/objectives">Objectives</a>
+        <a href="/about">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <p>© 2026 Teddy Travels. Built by Luke Tedford.</p>
+    </footer>
+  </body>
+</html>
