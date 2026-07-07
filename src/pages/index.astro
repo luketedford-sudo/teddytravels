@@ -4,44 +4,68 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout title="Teddy Travels">
   <section class="hero">
+    <p class="eyebrow">A personal archive by Luke Tedford</p>
     <h1>Teddy Travels</h1>
     <p>
-      A personal archive of mountains, road trips, surf, work seasons, study abroad,
-      and whatever else happens outside.
+      Mountains, road trips, surf, work seasons, study abroad, gear notes,
+      photos, and whatever else happens outside.
     </p>
   </section>
 
-  <section>
-    <h2>Welcome</h2>
+  <section class="intro">
+    <h2>What this is</h2>
     <p>
-      I’m Luke Tedford. This site is my digital scrapbook for trip reports,
-      photos, gear notes, objectives, and stories from the road.
+      This site is my digital scrapbook: part trip report collection, part photo
+      archive, part gear notebook, and part record of the places I’ve been and
+      the objectives I’m working toward.
     </p>
   </section>
 
   <section class="card-grid">
-    <article class="card">
+    <article class="card feature-card">
+      <p class="eyebrow">Routes, peaks, trails</p>
       <h2>Outdoors</h2>
-      <p>Climbing, hiking, backpacking, scrambling, and expedition reports.</p>
+      <p>
+        Climbing, hiking, backpacking, scrambling, snow climbs, trail runs, and
+        short expedition reports.
+      </p>
       <a href="/outdoors">Explore outdoor reports →</a>
     </article>
 
-    <article class="card">
+    <article class="card feature-card">
+      <p class="eyebrow">Longer stories</p>
       <h2>Trips</h2>
-      <p>Longer travel stories: road trips, surf trips, work seasons, and international wandering.</p>
+      <p>
+        Road trips, surf trips, work seasons, study abroad, international
+        backpacking, and other nonstandard chapters.
+      </p>
       <a href="/trips">Read travel stories →</a>
     </article>
 
-    <article class="card">
+    <article class="card feature-card">
+      <p class="eyebrow">Images from the road</p>
       <h2>Photos</h2>
-      <p>Favorite shots from trails, peaks, campsites, coastlines, and strange roads.</p>
+      <p>
+        Favorite shots from trails, peaks, campsites, coastlines, cities, and
+        strange roads.
+      </p>
       <a href="/photos">View gallery →</a>
     </article>
 
-    <article class="card">
+    <article class="card feature-card">
+      <p class="eyebrow">Future missions</p>
       <h2>Objectives</h2>
-      <p>Peaks, routes, countries, trails, and ideas I’m chasing.</p>
+      <p>
+        Peaks, routes, countries, trails, and ideas I’m chasing.
+      </p>
       <a href="/objectives">See objectives →</a>
     </article>
+  </section>
+
+  <section class="quote-block">
+    <p>
+      “A place to keep the stories before they turn into half-remembered camera
+      roll fragments.”
+    </p>
   </section>
 </BaseLayout>

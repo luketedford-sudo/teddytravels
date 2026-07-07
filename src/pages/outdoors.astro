@@ -1,42 +1,35 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Outdoors | Teddy Travels</title>
-  </head>
-  <body>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/outdoors">Outdoors</a>
-      <a href="/trips">Trips</a>
-      <a href="/photos">Photos</a>
-      <a href="/gear">Gear</a>
-      <a href="/objectives">Objectives</a>
-      <a href="/about">About</a>
-    </nav>
+<BaseLayout title="Outdoors | Teddy Travels">
+  <h1>Outdoors</h1>
+  <p>
+    Shorter outdoor reports: hikes, backpacking trips, scrambles, peaks, snow climbs,
+    trail runs, and weekend missions.
+  </p>
 
-    <main>
-      <h1>Outdoors</h1>
-      <p>Climbing, hiking, backpacking, scrambling, and expedition reports.</p>
+  <h2>United States</h2>
 
+  <div class="card-grid">
+    <article class="card">
       <h2>Idaho</h2>
-      <ul>
-        <li>Coming soon: Naomi Peak</li>
-        <li>Coming soon: Boise National Forest</li>
-      </ul>
+      <p>White Clouds, Sawtooths, Boise National Forest, Bear River Range, and more.</p>
+    </article>
 
+    <article class="card">
       <h2>Utah</h2>
-      <ul>
-        <li>Coming soon</li>
-      </ul>
+      <p>Wasatch, Bear Lake area, desert trips, and mountain weekends.</p>
+    </article>
 
+    <article class="card">
       <h2>Washington</h2>
-      <ul>
-        <li>Coming soon: Three Fingers</li>
-      </ul>
-    </main>
-  </body>
-</html>
+      <p>Fire lookouts, scrambles, alpine lakes, and Cascades objectives.</p>
+    </article>
+
+    <article class="card">
+      <h2>Southeast</h2>
+      <p>Tennessee, North Carolina, Georgia, and home-region trips.</p>
+    </article>
+  </div>
+</BaseLayout>
