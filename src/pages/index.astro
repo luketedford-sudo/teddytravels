@@ -3,12 +3,32 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Teddy Travels">
-  <section class="hero">
-    <p class="eyebrow">A digital archive by Luke Tedford</p>
-    <h1>Teddy Travels</h1>
-    <p>
-      Mountains, road trips, surf, work seasons, photos, and gear notes
-    </p>
+  <section class="hero hero-with-photos">
+    <div class="hero-copy">
+      <p class="eyebrow">A digital archive by Luke Tedford</p>
+      <h1>Teddy Travels</h1>
+      <p>
+        Mountains, road trips, surf, work seasons, photos, and gear notes.
+      </p>
+    </div>
+
+    <div class="hero-photos" aria-label="Photos of Luke outdoors">
+      <img
+        class="hero-photo hero-photo-main"
+        src="/images/home/luke-1.jpg"
+        alt="Luke outdoors on a trip"
+      />
+      <img
+        class="hero-photo hero-photo-small"
+        src="/images/home/luke-2.jpg"
+        alt="Luke on another outdoor trip"
+      />
+      <img
+        class="hero-photo hero-photo-small"
+        src="/images/home/luke-3.jpg"
+        alt="Luke traveling"
+      />
+    </div>
   </section>
 
   <section class="intro">
@@ -25,9 +45,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <p class="eyebrow">Routes, peaks, trails</p>
       <h2>Outdoors</h2>
       <p>
-		Climbing, hiking, backpacking, scrambling, and short expedition 
-		reports, organized by region and country.
-	</p>
+        Climbing, hiking, backpacking, scrambling, and short expedition
+        reports, organized by region and country.
+      </p>
       <a href="/outdoors">Explore reports →</a>
     </article>
 
@@ -41,7 +61,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </article>
 
     <article class="card feature-card">
-      <p class="eyebrow">Images Gallery</p>
+      <p class="eyebrow">Image gallery</p>
       <h2>Photos</h2>
       <p>
         Favorite shots from trails, peaks, campsites, and coastlines.
@@ -54,41 +74,35 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <h2>Objectives</h2>
       <p>
         Peaks, routes, countries, trails, and goals for the future.
-      <br>
-	  <br>
-	  <br>
-	  </p>
+      </p>
       <a href="/objectives">See objectives →</a>
     </article>
 
-	<article class="card feature-card">
-		<p class="eyebrow">Equipment</p>
-		<h2>Gear</h2>
-		<p>
-		  The backpacks, tents, boots, and more that I’ve used on trips, 
-		  and my thoughts on what worked and what didn’t.
-		</p>
-		<a href="/gear">Read gear reviews →</a>
-	  </article>
+    <article class="card feature-card">
+      <p class="eyebrow">Equipment</p>
+      <h2>Gear</h2>
+      <p>
+        The backpacks, tents, boots, and more that I’ve used on trips,
+        and my thoughts on what worked and what didn’t.
+      </p>
+      <a href="/gear">Read gear reviews →</a>
+    </article>
 
-	  <article class="card feature-card">
-		<p class="eyebrow">Reading List</p>
-		<h2>Books</h2>
-		<p>
-		  Books I have read, books I am reading, and books I want to read.
-		</p>
-		<a href="/books">Read book reviews →</a>
-	  </article>
-
+    <article class="card feature-card">
+      <p class="eyebrow">Reading list</p>
+      <h2>Books</h2>
+      <p>
+        Books I have read, books I am reading, and books I want to read.
+      </p>
+      <a href="/books">Read book reviews →</a>
+    </article>
   </section>
-
-  
 
   <section class="quote-block">
     <p>
-      “No weapon formed against me shall prosper” 
-	  <br>
-	  - Isaiah 54:17
+      “No weapon formed against me shall prosper”
+      <br />
+      - Isaiah 54:17
     </p>
   </section>
 </BaseLayout>
