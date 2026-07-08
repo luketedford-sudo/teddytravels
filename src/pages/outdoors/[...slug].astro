@@ -32,7 +32,10 @@ const photos = (post.data.photos || []).map((photo) => ({
       {post.data.difficulty && <p><strong>Difficulty:</strong> {post.data.difficulty}/10</p>}
       {post.data.quality && <p><strong>Quality:</strong> {post.data.quality}/10</p>}
       {post.data.gpx && (
-        <p><strong>GPX:</strong> <a href={post.data.gpx}>Download</a></p>
+        <p>
+          <strong>GPX:</strong>{" "}
+          <a href={post.data.gpx} download>Download</a>
+        </p>
       )}
     </section>
 
