@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const notes = [
+  {
+    title: "Future Alpine Kit",
+    date: "TBD",
+    type: "System",
+    href: "/gear/climbing-snow/future-alpine-kit",
+  },
+];
+
+const datedNotes = notes.map((note) => ({
+  ...note,
+  sortableDate: note.date === "TBD" ? "0000-00-00" : note.date,
+}));
+---
+
+<BaseLayout title="Climbing & Snow Gear | Teddy Travels">
+  <section class="page-header">
+    <p class="eyebrow">Gear</p>
+    <h1>Climbing & Snow</h1>
+    <p>
+      Boots, crampons, axes, helmets, ski gear, glacier gear, and the alpine
+      setup I am slowly building toward.
+    </p>
+  </section>
+
+  <section class="archive-list-section">
+    <div class="archive-list-header">
+      <h2>Notes</h2>
+
+      <div class="list-controls" aria-label="Sort gear notes">
+        <button class="sort-button is-active" type="button" data-sort="date">
+          Newest
+        </button>
+        <button class="sort-button" type="button" data-sort="alpha">
+          A–Z
+        </button>
+      </div>
+    </div>
+
+    <ol class="simple-report-list" id="report-list">
+      {datedNotes.map((note) => (
+        <li
+          class="simple-report-item"
+          data-title={note.title}
+          data-date={note.sortableDate}
+        >
+          <a href={note.href}>{note.title}</a>
+          <span>{note.date}</span>
+          <span>{note.type}</span>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <script is:inline>
+    const list = document.getElementById("report-list");
+    const buttons = document.querySelectorAll("[data-sort]");
+
+    if (list) {
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const sortType = button.getAttribute("data-sort");
+          const items = Array.from(list.querySelectorAll(".simple-report-item"));
+
+          items.sort((a, b) => {
+            const titleA = a.getAttribute("data-title") || "";
+            const titleB = b.getAttribute("data-title") || "";
+            const dateA = a.getAttribute("data-date") || "";
+            const dateB = b.getAttribute("data-date") || "";
+
+            if (sortType === "alpha") {
+              return titleA.localeCompare(titleB);
+            }
+
+            return dateB.localeCompare(dateA);
+          });
+
+          items.forEach((item) => list.appendChild(item));
+
+          buttons.forEach((otherButton) => {
+            otherButton.classList.remove("is-active");
+          });
+
+          button.classList.add("is-active");
+        });
+      });
+    }
+  </script>
+</BaseLayout>

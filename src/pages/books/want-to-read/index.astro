@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const books = [
+  {
+    title: "The Brothers Karamazov",
+    author: "Fyodor Dostoevsky",
+  },
+  {
+    title: "Desert Solitaire",
+    author: "Edward Abbey",
+  },
+  {
+    title: "The Dharma Bums",
+    author: "Jack Kerouac",
+  },
+];
+---
+
+<BaseLayout title="Want to Read | Teddy Travels">
+  <section class="page-header">
+    <p class="eyebrow">Books</p>
+    <h1>Want to Read</h1>
+    <p>
+      Books I want to get to eventually: novels, outdoor writing, travel books,
+      history, and anything that seems worth carrying around for a while.
+    </p>
+  </section>
+
+  <section class="archive-list-section">
+    <div class="archive-list-header">
+      <h2>Books</h2>
+    </div>
+
+    <ol class="simple-report-list">
+      {books.map((book) => (
+        <li class="simple-report-item book-list-item">
+          <span class="book-title">{book.title}</span>
+          <span>{book.author}</span>
+        </li>
+      ))}
+    </ol>
+  </section>
+</BaseLayout>
