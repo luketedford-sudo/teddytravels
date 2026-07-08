@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const reports = [
+  {
+    title: "Paparoa Track",
+    date: "TBD",
+    state: "New Zealand",
+    href: "/outdoors/new-zealand/mt-cook",
+  },
+  {
+    title: "Magnet Bay",
+    date: "TBD",
+    state: "New Zealand",
+    href: "/outdoors/new-zealand/routeburn-track",
+  },
+  {
+    title: "Temple Basin",
+    date: "TBD",
+    state: "New Zealand",
+    href: "/outdoors/new-zealand/milford-track",
+  },
+];
+
+const datedReports = reports.map((report) => ({
+  ...report,
+  sortableDate: report.date === "TBD" ? "0000-00-00" : report.date,
+}));
+---
+
+<BaseLayout title="New Zealand | Teddy Travels">
+  <section class="page-header">
+    <p class="eyebrow">International</p>
+    <h1>New Zealand</h1>
+    <p>
+      Tramps, peaks, huts, coastal tracks, alpine passes, and stories from
+      study abroad.
+    </p>
+  </section>
+
+  <section class="archive-list-section">
+    <div class="archive-list-header">
+      <h2>Reports</h2>
+
+      <div class="list-controls" aria-label="Sort reports">
+        <button class="sort-button is-active" type="button" data-sort="date">
+          Newest
+        </button>
+        <button class="sort-button" type="button" data-sort="alpha">
+          A–Z
+        </button>
+      </div>
+    </div>
+
+    <ol class="simple-report-list" id="report-list">
+      {datedReports.map((report) => (
+        <li
+          class="simple-report-item"
+          data-title={report.title}
+          data-date={report.sortableDate}
+        >
+          <a href={report.href}>{report.title}</a>
+          <span>{report.date}</span>
+          <span>{report.state}</span>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <script is:inline>
+    const list = document.getElementById("report-list");
+    const buttons = document.querySelectorAll("[data-sort]");
+
+    if (list) {
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const sortType = button.getAttribute("data-sort");
+          const items = Array.from(list.querySelectorAll(".simple-report-item"));
+
+          items.sort((a, b) => {
+            const titleA = a.getAttribute("data-title") || "";
+            const titleB = b.getAttribute("data-title") || "";
+            const dateA = a.getAttribute("data-date") || "";
+            const dateB = b.getAttribute("data-date") || "";
+
+            if (sortType === "alpha") {
+              return titleA.localeCompare(titleB);
+            }
+
+            return dateB.localeCompare(dateA);
+          });
+
+          items.forEach((item) => list.appendChild(item));
+
+          buttons.forEach((otherButton) => {
+            otherButton.classList.remove("is-active");
+          });
+
+          button.classList.add("is-active");
+        });
+      });
+    }
+  </script>
+</BaseLayout>

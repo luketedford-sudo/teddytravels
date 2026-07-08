@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Books | Teddy Travels">
+  <section class="page-header">
+    <p class="eyebrow">Reading list</p>
+    <h1>Books</h1>
+    <p>
+      Books I have read, books I am reading, and books I want to read.
+      Mostly novels, travel writing, outdoor writing, history, and whatever else
+      sticks with me.
+    </p>
+  </section>
+
+  <section class="archive-grid">
+    <article class="region-card">
+      <p class="eyebrow">Current</p>
+      <h2>Reading Now</h2>
+      <ul class="report-list">
+        <li><span>Current</span> East of Eden</li>
+      </ul>
+    </article>
+
+    <article class="region-card">
+      <p class="eyebrow">Finished</p>
+      <h2>Read</h2>
+      <ul class="report-list">
+        <li><span>Coming soon</span> Book notes</li>
+      </ul>
+    </article>
+
+    <article class="region-card">
+      <p class="eyebrow">Future</p>
+      <h2>Want to Read</h2>
+      <ul class="report-list">
+        <li><span>Future</span> Reading list</li>
+      </ul>
+    </article>
+  </section>
+</BaseLayout>
