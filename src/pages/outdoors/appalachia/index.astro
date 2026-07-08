@@ -1,92 +1,24 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ArchiveList from "../../../components/ArchiveList.astro";
+import { getCollection } from "astro:content";
+import { collectionToArchiveItems } from "../../../lib/content-utils.js";
 
-const reports = [
-  {
-    title: "Grandfather Mountain",
-    date: "TBD",
-    state: "North Carolina",
-    href: "/outdoors/appalachia/mt-mitchell",
-  },
-];
-
-const datedReports = reports.map((report) => ({
-  ...report,
-  sortableDate: report.date === "TBD" ? "0000-00-00" : report.date,
-}));
+const reports = await getCollection("outdoors", ({ data }) => data.region === "Appalachia" && data.draft !== true);
+const items = collectionToArchiveItems("outdoors", reports, "location");
 ---
 
 <BaseLayout title="Appalachia | Teddy Travels">
   <section class="page-header">
     <p class="eyebrow">United States</p>
     <h1>Appalachia</h1>
-    <p>
-      Tennessee, North Carolina, Georgia, Virginia, the Smokies, the Blue Ridge,
-      and the mountains closer to home.
-    </p>
+    <p>Tennessee, North Carolina, Georgia, Virginia, the Smokies, the Blue Ridge, and the mountains closer to home.</p>
   </section>
 
-  <section class="archive-list-section">
-    <div class="archive-list-header">
-      <h2>Reports</h2>
-
-      <div class="list-controls" aria-label="Sort reports">
-        <button class="sort-button is-active" type="button" data-sort="date">
-          Newest
-        </button>
-        <button class="sort-button" type="button" data-sort="alpha">
-          A–Z
-        </button>
-      </div>
-    </div>
-
-    <ol class="simple-report-list" id="report-list">
-      {datedReports.map((report) => (
-        <li
-          class="simple-report-item"
-          data-title={report.title}
-          data-date={report.sortableDate}
-        >
-          <a href={report.href}>{report.title}</a>
-          <span>{report.date}</span>
-          <span>{report.state}</span>
-        </li>
-      ))}
-    </ol>
-  </section>
-
-  <script is:inline>
-    const list = document.getElementById("report-list");
-    const buttons = document.querySelectorAll("[data-sort]");
-
-    if (list) {
-      buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const sortType = button.getAttribute("data-sort");
-          const items = Array.from(list.querySelectorAll(".simple-report-item"));
-
-          items.sort((a, b) => {
-            const titleA = a.getAttribute("data-title") || "";
-            const titleB = b.getAttribute("data-title") || "";
-            const dateA = a.getAttribute("data-date") || "";
-            const dateB = b.getAttribute("data-date") || "";
-
-            if (sortType === "alpha") {
-              return titleA.localeCompare(titleB);
-            }
-
-            return dateB.localeCompare(dateA);
-          });
-
-          items.forEach((item) => list.appendChild(item));
-
-          buttons.forEach((otherButton) => {
-            otherButton.classList.remove("is-active");
-          });
-
-          button.classList.add("is-active");
-        });
-      });
-    }
-  </script>
+  <ArchiveList
+    heading="Reports"
+    items={items}
+    controlsLabel="Sort reports"
+    emptyText="No reports here yet. Add one in src/content/outdoors/appalachia/."
+  />
 </BaseLayout>

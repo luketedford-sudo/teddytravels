@@ -1,19 +1,11 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ArchiveList from "../../../components/ArchiveList.astro";
+import { getCollection } from "astro:content";
+import { collectionToArchiveItems } from "../../../lib/content-utils.js";
 
-const books = [
-  {
-    title: "East of Eden",
-    author: "John Steinbeck",
-    date: "TBD",
-    href: "/books/read/east-of-eden",
-  },
-];
-
-const datedBooks = books.map((book) => ({
-  ...book,
-  sortableDate: book.date === "TBD" ? "0000-00-00" : book.date,
-}));
+const books = await getCollection("books", ({ data }) => data.status === "read" && data.draft !== true);
+const items = collectionToArchiveItems("books/read", books, "author");
 ---
 
 <BaseLayout title="Read | Teddy Travels">
@@ -26,67 +18,10 @@ const datedBooks = books.map((book) => ({
     </p>
   </section>
 
-  <section class="archive-list-section">
-    <div class="archive-list-header">
-      <h2>Books</h2>
-
-      <div class="list-controls" aria-label="Sort books">
-        <button class="sort-button is-active" type="button" data-sort="date">
-          Newest
-        </button>
-        <button class="sort-button" type="button" data-sort="alpha">
-          A–Z
-        </button>
-      </div>
-    </div>
-
-    <ol class="simple-report-list" id="report-list">
-      {datedBooks.map((book) => (
-        <li
-          class="simple-report-item"
-          data-title={book.title}
-          data-date={book.sortableDate}
-        >
-          <a href={book.href}>{book.title}</a>
-          <span>{book.date}</span>
-          <span>{book.author}</span>
-        </li>
-      ))}
-    </ol>
-  </section>
-
-  <script is:inline>
-    const list = document.getElementById("report-list");
-    const buttons = document.querySelectorAll("[data-sort]");
-
-    if (list) {
-      buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const sortType = button.getAttribute("data-sort");
-          const items = Array.from(list.querySelectorAll(".simple-report-item"));
-
-          items.sort((a, b) => {
-            const titleA = a.getAttribute("data-title") || "";
-            const titleB = b.getAttribute("data-title") || "";
-            const dateA = a.getAttribute("data-date") || "";
-            const dateB = b.getAttribute("data-date") || "";
-
-            if (sortType === "alpha") {
-              return titleA.localeCompare(titleB);
-            }
-
-            return dateB.localeCompare(dateA);
-          });
-
-          items.forEach((item) => list.appendChild(item));
-
-          buttons.forEach((otherButton) => {
-            otherButton.classList.remove("is-active");
-          });
-
-          button.classList.add("is-active");
-        });
-      });
-    }
-  </script>
+  <ArchiveList
+    heading="Books"
+    items={items}
+    controlsLabel="Sort books"
+    emptyText="No book notes yet. Add one in src/content/books/."
+  />
 </BaseLayout>

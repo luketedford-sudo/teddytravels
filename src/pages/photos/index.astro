@@ -1,13 +1,41 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PhotoGrid from "../../components/PhotoGrid.astro";
+import { getCollection } from "astro:content";
+
+const outdoorPosts = await getCollection("outdoors", ({ data }) => data.draft !== true);
+const tripPosts = await getCollection("trips", ({ data }) => data.draft !== true);
+
+const galleryPhotos = [...outdoorPosts, ...tripPosts]
+  .flatMap((post) => {
+    if (post.data.gallery === false) return [];
+
+    const section = post.collection;
+    const href = `/${section}/${post.id}`;
+
+    return (post.data.photos || []).map((photo) => ({
+      ...photo,
+      title: post.data.title,
+      post: href,
+    }));
+  });
 ---
 
 <BaseLayout title="Photos | Teddy Travels">
-  <h1>Photos</h1>
-  <p>
-    A gallery of favorite photos from mountains, roads, campsites, coastlines,
-    cities, trails, and trips.
-  </p>
+  <section class="page-header">
+    <p class="eyebrow">Photo archive</p>
+    <h1>Photos</h1>
+    <p>
+      A gallery of favorite photos from mountains, roads, campsites, coastlines,
+      cities, trails, and trips.
+    </p>
+  </section>
 
-  <p>Photo galleries coming soon.</p>
+  {galleryPhotos.length ? (
+    <PhotoGrid photos={galleryPhotos} linked={true} />
+  ) : (
+    <p class="empty-note">
+      Photo galleries coming soon. Photos added to Outdoors and Trips posts will show here automatically.
+    </p>
+  )}
 </BaseLayout>

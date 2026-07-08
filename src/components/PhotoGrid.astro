@@ -1,0 +1,23 @@
+---
+const { photos = [], linked = false } = Astro.props;
+---
+
+{photos.length > 0 && (
+  <section class="photo-grid" aria-label="Photos">
+    {photos.map((photo) => (
+      <figure class="photo-card">
+        {linked && photo.post ? (
+          <a href={photo.post}>
+            <img src={photo.src} alt={photo.alt} loading="lazy" />
+          </a>
+        ) : (
+          <img src={photo.src} alt={photo.alt} loading="lazy" />
+        )}
+        <figcaption>
+          {photo.title ? <strong>{photo.title}</strong> : null}
+          <span>{photo.alt}</span>
+        </figcaption>
+      </figure>
+    ))}
+  </section>
+)}

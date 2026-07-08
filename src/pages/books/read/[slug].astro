@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PhotoGrid from "../../../components/PhotoGrid.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const books = await getCollection("books", ({ data }) => data.status === "read" && data.draft !== true);
+
+  return books.map((book) => ({
+    params: { slug: book.id },
+    props: { book },
+  }));
+}
+
+const { book } = Astro.props;
+const { Content } = await render(book);
+const photos = (book.data.photos || []).map((photo) => ({
+  ...photo,
+  title: book.data.title,
+}));
+---
+
+<BaseLayout title={`${book.data.title} | Teddy Travels`}>
+  <article class="trip-report">
+    <p class="eyebrow">Book Notes</p>
+    <h1>{book.data.title}</h1>
+
+    <section class="report-meta">
+      <p><strong>Author:</strong> {book.data.author}</p>
+      {book.data.date && <p><strong>Finished:</strong> {book.data.date}</p>}
+      {book.data.rating && <p><strong>Rating:</strong> {book.data.rating}/10</p>}
+    </section>
+
+    <Content />
+
+    <PhotoGrid photos={photos} />
+  </article>
+</BaseLayout>

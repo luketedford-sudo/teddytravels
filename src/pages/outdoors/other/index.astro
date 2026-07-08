@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ArchiveList from "../../../components/ArchiveList.astro";
+import { getCollection } from "astro:content";
+import { collectionToArchiveItems } from "../../../lib/content-utils.js";
+
+const reports = await getCollection("outdoors", ({ data }) => data.region === "Other" && data.draft !== true);
+const items = collectionToArchiveItems("outdoors", reports, "location");
+---
+
+<BaseLayout title="Other | Teddy Travels">
+  <section class="page-header">
+    <p class="eyebrow">Elsewhere</p>
+    <h1>Other</h1>
+    <p>One-offs from locations that do not have their own section yet.</p>
+  </section>
+
+  <ArchiveList
+    heading="Reports"
+    items={items}
+    controlsLabel="Sort reports"
+    emptyText="No reports here yet. Add one in src/content/outdoors/other/."
+  />
+</BaseLayout>

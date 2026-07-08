@@ -1,0 +1,87 @@
+---
+const {
+  heading = "Reports",
+  items = [],
+  controlsLabel = "Sort items",
+  emptyText = "Nothing here yet.",
+} = Astro.props;
+
+const normalizedItems = items.map((item) => ({
+  ...item,
+  sortDate: item.sortDate || (item.date && item.date !== "TBD" ? item.date : "0000-00-00"),
+}));
+---
+
+<section class="archive-list-section">
+  <div class="archive-list-header">
+    <h2>{heading}</h2>
+
+    {normalizedItems.length > 1 && (
+      <div class="list-controls" aria-label={controlsLabel}>
+        <button class="sort-button is-active" type="button" data-sort="date">
+          Newest
+        </button>
+        <button class="sort-button" type="button" data-sort="alpha">
+          A–Z
+        </button>
+      </div>
+    )}
+  </div>
+
+  {normalizedItems.length ? (
+    <ol class="simple-report-list" id="report-list">
+      {normalizedItems.map((item) => (
+        <li
+          class="simple-report-item"
+          data-title={item.title}
+          data-date={item.sortDate}
+        >
+          {item.href ? (
+            <a href={item.href}>{item.title}</a>
+          ) : (
+            <span class="book-title">{item.title}</span>
+          )}
+          <span>{item.date}</span>
+          <span>{item.meta}</span>
+        </li>
+      ))}
+    </ol>
+  ) : (
+    <p class="empty-note">{emptyText}</p>
+  )}
+</section>
+
+<script is:inline>
+  const list = document.getElementById("report-list");
+  const buttons = document.querySelectorAll("[data-sort]");
+
+  if (list) {
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const sortType = button.getAttribute("data-sort");
+        const items = Array.from(list.querySelectorAll(".simple-report-item"));
+
+        items.sort((a, b) => {
+          const titleA = a.getAttribute("data-title") || "";
+          const titleB = b.getAttribute("data-title") || "";
+          const dateA = a.getAttribute("data-date") || "";
+          const dateB = b.getAttribute("data-date") || "";
+
+          if (sortType === "alpha") {
+            return titleA.localeCompare(titleB);
+          }
+
+          return dateB.localeCompare(dateA);
+        });
+
+        items.forEach((item) => list.appendChild(item));
+
+        buttons.forEach((otherButton) => {
+          otherButton.classList.remove("is-active");
+        });
+
+        button.classList.add("is-active");
+      });
+    });
+  }
+</script>
