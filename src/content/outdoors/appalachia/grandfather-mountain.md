@@ -1,11 +1,11 @@
 ---
-title: "Grandfather Mountain"
+title: "Grandfather Mountain via Tanawha Trail"
 date: "5/12/2026"
 region: "Appalachia"
 location: "North Carolina"
 type: "Hike / mountain"
-difficulty: 6
-quality: 8
+miles: 12
+time: "5 hr"
 gpx: "/gpx/grandfather-mountain.gpx"
 gallery: true
 photos:
@@ -23,7 +23,7 @@ photos:
     alt: "View from the campsite"
 ---
 
-Writing this two months later so my memory is a bit dodgy. My brother Matthew and my plan was to drive to Beacon Heights parking area, hike to the Linn Cove Visitor Center, under the Linn Cove viaduct, follow the Blue Ridge Parkway, up Grandfather Mountain to Calloway Peak, then follow the ridgeline to Attic Window campsite- 12 miles in total. The following morning we would hike over Macrae Peak down to the Grandfather Trail Trailhead- just two miles- and hitchhike back to Beacon Heights. As I recall, things went according to plan. 
+Writing this two months later so my memory is a bit dodgy. My brother Matthew's plan and mine was to drive to Beacon Heights parking area, hike to the Linn Cove Visitor Center, under the Linn Cove viaduct, follow the Blue Ridge Parkway, up Grandfather Mountain to Calloway Peak, then follow the ridgeline to Attic Window campsite- 12 miles in total. The following morning we would hike over Macrae Peak down to the Grandfather Trail Trailhead- just two miles- and hitchhike back to Beacon Heights. As I recall, things went according to plan. 
 
 It was raining as we arrived at Beacon Heights. Not as intensely as it had during the majority of the drive, but still raining. We set out with jackets and pack covers but quickly grew hot and removed them as the rain faded away. The ground was extremely rocky and I would not recommend doing this section of the trail- there are better trailheads farther along. We got a bit lost at the Linn Cove Visitor Center, but ultimately found the trail hiding behind a row of portapotties. From there we continued under the viaduct- a marvelous S-shaped elevated road and a true miracle of engineering. Our next stop was at the Rough Ridge Lookout, which had beautiful views and intense winds. The trail continues until a junction where the Daniel Boone Scout Trail splits west from the Tanawha trail and up Grandfather Mountain. 
 

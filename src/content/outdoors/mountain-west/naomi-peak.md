@@ -1,11 +1,11 @@
 ---
-title: "Naomi Peak"
+title: "Naomi Peak via Tony Grove"
 date: "2026-06-28"
 region: "Mountain West"
 location: "Utah"
 type: "Hike / peak"
-difficulty: 5
-quality: 8
+miles: 8
+time: "3 hr 30 min"
 gpx: "/gpx/naomi-peak.gpx"
 gallery: true
 photos:
@@ -23,9 +23,9 @@ photos:
     alt: "Aspen grove near trailhead"
 ---
 
-I arose early and tired on the morning of June 28, 2026 in my tent near Forest Road 163, west of Bear Lake. A cloudless and windy night had kept me from good rest and I contemplated the day’s goal- hiking 9 miles to summit Naomi Peak- glumly. A breakfast of Peak Refuel biscuits and gravy revived my spirit, thirsty though I was. The previous night’s search for a water source had yielded nothing but a dry creek bed.
+I arose early and tired on the morning of June 28, 2026 in my tent near Forest Road 163, west of Bear Lake. A cloudless and windy night had kept me from good rest and I contemplated the day’s goal- hiking eight miles to summit Naomi Peak- glumly. A breakfast of Peak Refuel biscuits and gravy revived my spirit, thirsty though I was. The previous night’s search for a water source had yielded nothing but a dry creek bed.
 
-After packing up my tent, I hopped in Cassidy the Subaru and drove the short distance to the Tony Grove parking lot. To my chagrin, a day pass cost $15. I only had Hamiltons. Fortunately, a passing Good Samaritan paid my way, refusing to take a ten in exchange. 
+After packing up my tent, I hopped in Cassidy the Subaru and drove the short distance to the Tony Grove parking lot. To my chagrin, a day pass cost $15. I only had Hamiltons. Fortunately, a passing Good Samaritan paid my way entirely, refusing to break my tens in exchange.
 
 I spent some time at the trailhead, waiting for my shoes to dry. I had purchased them the day before and swiftly discovered that, while excellent in dry weather, they were not waterproof at all. Ultimately, I grew tired of waiting and set out around 9:00 AM with soggy socks.
 

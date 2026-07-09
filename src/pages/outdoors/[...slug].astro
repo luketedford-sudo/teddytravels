@@ -29,8 +29,8 @@ const photos = (post.data.photos || []).map((photo) => ({
       <p><strong>Date:</strong> {post.data.date}</p>
       <p><strong>Location:</strong> {post.data.location}</p>
       <p><strong>Type:</strong> {post.data.type}</p>
-      {post.data.difficulty && <p><strong>Difficulty:</strong> {post.data.difficulty}/10</p>}
-      {post.data.quality && <p><strong>Quality:</strong> {post.data.quality}/10</p>}
+      {post.data.miles && <p><strong>Miles:</strong> {post.data.miles}</p>}
+      {post.data.time && <p><strong>Time:</strong> {post.data.time}</p>}
       {post.data.gpx && (
         <p>
           <strong>GPX:</strong>{" "}
