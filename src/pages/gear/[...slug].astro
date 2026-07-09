@@ -28,7 +28,18 @@ const photos = (post.data.photos || []).map((photo) => ({
     <section class="report-meta">
       <p><strong>Date:</strong> {post.data.date}</p>
       <p><strong>Type:</strong> {post.data.type}</p>
-      {post.data.rating && <p><strong>Rating:</strong> {post.data.rating}/10</p>}
+      {post.data.rating && (
+        <p><strong>Rating:</strong> {post.data.rating}/10</p>
+      )}
+      
+      {post.data.productLink && (
+        <p>
+          <strong>Product:</strong>{" "}
+          <a href={post.data.productLink} target="_blank" rel="noopener noreferrer">
+            View product
+          </a>
+        </p>
+      )}
     </section>
 
     <Content />

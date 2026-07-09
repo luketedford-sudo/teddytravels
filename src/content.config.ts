@@ -46,6 +46,7 @@ const gear = defineCollection({
     category: z.string(),
     type: z.string(),
     rating: z.number().min(1).max(10).optional(),
+    productLink: z.string().url().optional(),
     photos: z.array(photoSchema).optional(),
     gallery: z.boolean().optional(),
     draft: z.boolean().optional(),
