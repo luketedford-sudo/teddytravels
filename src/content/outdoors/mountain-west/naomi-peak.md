@@ -4,7 +4,7 @@ date: "2026-06-28"
 region: "Mountain West"
 location: "Utah"
 type: "Hike / peak"
-difficulty: 7
+difficulty: 5
 quality: 8
 gpx: "/gpx/naomi-peak.gpx"
 gallery: true
