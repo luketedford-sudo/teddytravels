@@ -15,6 +15,7 @@ const outdoors = defineCollection({
     region: z.string(),
     location: z.string(),
     type: z.string(),
+    height: z.number().optional(),
     miles: z.number().optional(),
     time: z.string().optional(),
     gpx: z.string().optional(),

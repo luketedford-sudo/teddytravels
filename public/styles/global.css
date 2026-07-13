@@ -629,3 +629,45 @@
 .photo-card figcaption strong {
   color: var(--green);
 }
+.archive-actions {
+  margin: 1.5rem 0;
+}
+
+.archive-actions button {
+  border: 1px solid var(--border);
+  background: var(--paper);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.archive-actions button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.archive-table-wrap {
+  overflow-x: auto;
+}
+
+.archive-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.archive-table th,
+.archive-table td {
+  padding: 0.85rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.archive-table th {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}

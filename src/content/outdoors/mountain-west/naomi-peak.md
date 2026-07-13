@@ -3,7 +3,8 @@ title: "Naomi Peak via Tony Grove"
 date: "2026-06-28"
 region: "Mountain West"
 location: "Utah"
-type: "Hike / peak"
+type: "Peak"
+height: 9980
 miles: 8
 time: "3 hr 30 min"
 gpx: "/gpx/naomi-peak.gpx"

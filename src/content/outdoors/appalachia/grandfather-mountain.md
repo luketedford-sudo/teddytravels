@@ -1,9 +1,10 @@
 ---
 title: "Grandfather Mountain via Tanawha Trail"
-date: "5/12/2026"
+date: "2026-05-12"
 region: "Appalachia"
 location: "North Carolina"
-type: "Hike / mountain"
+type: "Peak"
+height: 5946
 miles: 12
 time: "5 hr"
 gpx: "/gpx/grandfather-mountain.gpx"

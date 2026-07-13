@@ -1,0 +1,148 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("outdoors", ({ data }) => data.draft !== true);
+
+const getDateTimestamp = (dateString: string) => {
+  const isoMatch = dateString.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  const slashMatch = dateString.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+
+  if (isoMatch) {
+    const [, year, month, day] = isoMatch;
+    return new Date(Number(year), Number(month) - 1, Number(day)).getTime();
+  }
+
+  if (slashMatch) {
+    const [, month, day, year] = slashMatch;
+    return new Date(Number(year), Number(month) - 1, Number(day)).getTime();
+  }
+
+  const fallbackDate = new Date(dateString);
+  const fallbackTime = fallbackDate.getTime();
+
+  return Number.isNaN(fallbackTime) ? 0 : fallbackTime;
+};
+
+const formatDate = (dateString: string) => {
+  const timestamp = getDateTimestamp(dateString);
+
+  if (!timestamp) {
+    return dateString;
+  }
+
+  return new Date(timestamp).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+};
+
+const peaks = posts
+  .filter((post) => post.data.type === "Peak")
+  .sort((a, b) => (b.data.height || 0) - (a.data.height || 0));
+---
+
+<BaseLayout title="Peaks | Teddy Travels">
+  <section class="page-header">
+    <p class="eyebrow">Outdoors</p>
+    <h1>Peaks</h1>
+    <p>
+      A running list of peaks I’ve climbed, sorted by height by default.
+    </p>
+  </section>
+
+  <section class="archive-actions" aria-label="Sort peaks">
+    <button type="button" class="sort-button active" data-sort-button data-sort="height">
+      Sort by height
+    </button>
+
+    <button type="button" class="sort-button" data-sort-button data-sort="date">
+      Sort by date
+    </button>
+
+    <button type="button" class="sort-button" data-sort-button data-sort="alpha">
+      Sort alphabetically
+    </button>
+  </section>
+
+  <section class="archive-table-wrap">
+    <table class="archive-table" id="peaks-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Height</th>
+          <th>Region</th>
+          <th>State</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {peaks.map((post) => (
+          <tr
+            data-title={post.data.title.toLowerCase()}
+            data-height={post.data.height || 0}
+            data-date-timestamp={getDateTimestamp(post.data.date)}
+          >
+            <td>
+              <a href={`/outdoors/${post.id}`}>
+                {post.data.title}
+              </a>
+            </td>
+            <td>{formatDate(post.data.date)}</td>
+            <td>
+              {post.data.height ? `${post.data.height.toLocaleString()} ft` : "—"}
+            </td>
+            <td>{post.data.region}</td>
+            <td>{post.data.location}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+    const buttons = document.querySelectorAll<HTMLButtonElement>("[data-sort-button]");
+    const tableBody = document.querySelector<HTMLTableSectionElement>("#peaks-table tbody");
+
+    function sortRows(sortType: string) {
+      if (!tableBody) return;
+
+      const rows = Array.from(tableBody.querySelectorAll<HTMLTableRowElement>("tr"));
+
+      rows.sort((a, b) => {
+        if (sortType === "alpha") {
+          const titleA = a.dataset.title || "";
+          const titleB = b.dataset.title || "";
+          return titleA.localeCompare(titleB);
+        }
+
+        if (sortType === "date") {
+          const dateA = Number(a.dataset.dateTimestamp || 0);
+          const dateB = Number(b.dataset.dateTimestamp || 0);
+          return dateB - dateA;
+        }
+
+        const heightA = Number(a.dataset.height || 0);
+        const heightB = Number(b.dataset.height || 0);
+        return heightB - heightA;
+      });
+
+      rows.forEach((row) => tableBody.appendChild(row));
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const sortType = button.dataset.sort;
+
+        if (!sortType) return;
+
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        sortRows(sortType);
+      });
+    });
+  </script>
+</BaseLayout>
