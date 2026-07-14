@@ -6,9 +6,23 @@ const { title = "Teddy Travels" } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+  
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-9ZM90EB9EX"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-9ZM90EB9EX");
+    </script>
+  
     <title>{title}</title>
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
+
+  
 
   <body>
     <header class="site-header">
