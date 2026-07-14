@@ -5,6 +5,9 @@ region: "Mountain West"
 location: "Idaho"
 type: "Peak"
 height: 11878
+peaks:
+  - name: "Standhope Peak"
+    height: 11878
 miles: 8
 time: "7 hr 30 min"
 gpx: "/gpx/standhope-peak.gpx"

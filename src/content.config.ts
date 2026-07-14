@@ -7,6 +7,11 @@ const photoSchema = z.object({
   alt: z.string(),
 });
 
+const peakEntrySchema = z.object({
+  name: z.string(),
+  height: z.number().optional(),
+});
+
 const outdoors = defineCollection({
   loader: glob({ base: "./src/content/outdoors", pattern: "**/*.{md,mdx}" }),
   schema: z.object({
@@ -22,6 +27,7 @@ const outdoors = defineCollection({
     photos: z.array(photoSchema).optional(),
     gallery: z.boolean().optional(),
     draft: z.boolean().optional(),
+    peaks: z.array(peakEntrySchema).optional(),
   }),
 });
 

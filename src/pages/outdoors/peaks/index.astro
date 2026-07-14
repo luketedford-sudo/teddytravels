@@ -40,7 +40,19 @@ const formatDate = (dateString: string) => {
 
 const peaks = posts
   .filter((post) => post.data.type === "Peak")
-  .sort((a, b) => (b.data.height || 0) - (a.data.height || 0));
+  .flatMap((post) => {
+    const entries =
+      post.data.peaks && post.data.peaks.length > 0
+        ? post.data.peaks
+        : [{ name: post.data.title, height: post.data.height }];
+
+    return entries.map((entry) => ({
+      post,
+      name: entry.name,
+      height: entry.height ?? post.data.height,
+    }));
+  })
+  .sort((a, b) => (b.height || 0) - (a.height || 0));
 ---
 
 <BaseLayout title="Peaks | Teddy Travels">
@@ -79,23 +91,23 @@ const peaks = posts
       </thead>
 
       <tbody>
-        {peaks.map((post) => (
+        {peaks.map((peak) => (
           <tr
-            data-title={post.data.title.toLowerCase()}
-            data-height={post.data.height || 0}
-            data-date-timestamp={getDateTimestamp(post.data.date)}
+            data-title={peak.name.toLowerCase()}
+            data-height={peak.height || 0}
+            data-date-timestamp={getDateTimestamp(peak.post.data.date)}
           >
             <td>
-              <a href={`/outdoors/${post.id}`}>
-                {post.data.title}
+              <a href={`/outdoors/${peak.post.id}`}>
+                {peak.name}
               </a>
             </td>
-            <td>{formatDate(post.data.date)}</td>
+            <td>{formatDate(peak.post.data.date)}</td>
             <td>
-              {post.data.height ? `${post.data.height.toLocaleString()} ft` : "—"}
+              {peak.height ? `${peak.height.toLocaleString()} ft` : "—"}
             </td>
-            <td>{post.data.region}</td>
-            <td>{post.data.location}</td>
+            <td>{peak.post.data.region}</td>
+            <td>{peak.post.data.location}</td>
           </tr>
         ))}
       </tbody>

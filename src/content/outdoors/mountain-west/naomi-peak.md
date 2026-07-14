@@ -5,6 +5,9 @@ region: "Mountain West"
 location: "Utah"
 type: "Peak"
 height: 9980
+peaks:
+  - name: "Naomi Peak"
+    height: 9980
 miles: 8
 time: "3 hr 30 min"
 gpx: "/gpx/naomi-peak.gpx"

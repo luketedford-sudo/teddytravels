@@ -5,6 +5,9 @@ region: "Appalachia"
 location: "North Carolina"
 type: "Peak"
 height: 5946
+peaks:
+  - name: "Grandfather Mountain"
+    height: 5946
 miles: 12
 time: "5 hr"
 gpx: "/gpx/grandfather-mountain.gpx"
