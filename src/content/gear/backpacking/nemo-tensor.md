@@ -1,10 +1,10 @@
 ---
 title: "Nemo Tensor All-Season Sleeping Pad"
-date: "TBD"
+date: "2026-07-14"
 category: "Backpacking"
 type: "Sleeping Pad"
 rating: 9
-productLink: "https://teddytravels.net"
+productLink: "https://www.nemoequipment.com/products/tensor-all-season-insulated-sleeping-pad?srsltid=AfmBOorGATr9iK8pxEoR-_BN6yXlVj7IkH5EXbu7QhU492J1GIdos98c&variant=42570595958957"
 gallery: false
 photos: []
 ---
