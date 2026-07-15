@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getTripStats } from "../../lib/trip-stats.js";
+
+const stats = await getTripStats();
 ---
 
 <BaseLayout title="About | Teddy Travels">
@@ -10,8 +13,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
       <p>
         I’m Luke Tedford. I grew up in Tennessee, study at the University of Alabama,
-        and spend as much time as I can outside bagging peaks, skiing, climbing, making 
-        friends, and hiking.
+        and spend as much time as I can outside bagging peaks, skiing, climbing, hiking, and making 
+        friends.
         
       </p>
 
@@ -19,6 +22,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         Teddy Travels is my personal archive: part trip report collection, part photo
         scrapbook, part gear notebook, and part record of the places I’ve been for my 
         friends to keep up and myself to remember.
+      </p>
+
+      <p>
+        Contact me at luketedford@gmail.com.
       </p>
 
       <div class="about-links" aria-label="Luke Tedford links">
@@ -39,5 +46,24 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         class="about-photo"
       />
     </figure>
+  </section>
+
+  <section class="stat-dashboard" aria-label="Trip stats">
+    <a class="stat-card" href="/gear">
+      <p class="stat-value">{stats.totalReviews}</p>
+      <p class="stat-label">Gear Reviews</p>
+    </a>
+    <a class="stat-card" href="/books/read">
+      <p class="stat-value">{stats.totalBooksRead}</p>
+      <p class="stat-label">Books Read</p>
+    </a>
+    <a class="stat-card" href="/outdoors">
+      <p class="stat-value">{stats.totalMiles.toLocaleString()}</p>
+      <p class="stat-label">Miles Hiked</p>
+    </a>
+    <a class="stat-card" href="/outdoors/peaks">
+      <p class="stat-value">{stats.totalVerticalFeet.toLocaleString()}'</p>
+      <p class="stat-label">Vertical Climbed</p>
+    </a>
   </section>
 </BaseLayout>

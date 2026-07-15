@@ -535,6 +535,46 @@
     }
   }
 
+  .stat-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .stat-card {
+    display: block;
+    padding: 20px 16px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+
+  .stat-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+
+  .stat-value {
+    margin: 0;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .stat-card:hover .stat-value {
+    color: var(--accent-dark);
+  }
+
+  .stat-label {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
   .about-links {
     display: flex;
     flex-wrap: wrap;
