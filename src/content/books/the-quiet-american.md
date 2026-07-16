@@ -1,7 +1,7 @@
 ---
 title: "The Quiet American"
 author: "Graham Greene"
-date: "1/3/2026"
+date: "2026-01-03"
 status: "read"
 photos: []
 ---

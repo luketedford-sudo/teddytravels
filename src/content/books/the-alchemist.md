@@ -1,7 +1,7 @@
 ---
 title: "The Alchemist"
 author: "Paulo Coelho"
-date: "7/5/2026"
+date: "2026-07-05"
 status: "read"
 photos: []
 ---
